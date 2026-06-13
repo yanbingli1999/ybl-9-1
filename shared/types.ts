@@ -79,8 +79,14 @@ export interface Commission {
   deadlineHours: number;
   fragility: number;
   isAccepted: boolean;
+  isShipped?: boolean;
   isCompleted?: boolean;
   createdAt?: number;
+  acceptedAt?: number;
+  acceptedGameHours?: number;
+  shippedAt?: number;
+  shippedGameHours?: number;
+  completedAt?: number;
 }
 
 export interface PlayerVehicle {
@@ -103,11 +109,15 @@ export interface Trip {
   status: 'pending' | 'in_progress' | 'completed' | 'failed';
   progress: number;
   departureTime: number;
+  departureGameHours?: number;
   eta: number;
+  etaGameHours?: number;
   actualArrivalTime?: number;
+  actualArrivalGameHours?: number;
   currentDamage: number;
   weatherId: string;
   events: string[];
+  eventEffects: { title: string; effect: any }[];
   totalCost: number;
 }
 

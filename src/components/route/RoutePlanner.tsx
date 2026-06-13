@@ -20,12 +20,13 @@ const RoutePlanner = () => {
     selectVehicle,
     selectRoute,
     startTrip,
+    isDispatching,
     error,
   } = useGameStore();
   
   const [destinationId, setDestinationId] = useState<string>('');
   
-  const acceptedCommissions = commissions.filter(c => c.isAccepted && !c.isCompleted);
+  const acceptedCommissions = commissions.filter(c => c.isAccepted && !c.isShipped && !c.isCompleted);
   
   const availableVehicles = vehicles.filter(v => v.isAvailable);
   
@@ -353,11 +354,12 @@ const RoutePlanner = () => {
                       !selectedVehicle ||
                       !selectedRoute ||
                       player.gold < tripCost ||
-                      (loadCalculation?.isOverloaded || false)
+                      (loadCalculation?.isOverloaded || false) ||
+                      isDispatching
                     }
                     className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-lg hover:from-amber-400 hover:to-orange-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    确认派车
+                    {isDispatching ? '派车中...' : '确认派车'}
                   </button>
                 </div>
               </div>

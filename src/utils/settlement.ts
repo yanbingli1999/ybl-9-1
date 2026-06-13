@@ -8,6 +8,7 @@ import type {
   LedgerEntry,
   ReputationGrade
 } from '../../shared/types';
+import { calculateIsLateGameTime } from './gameLogic';
 
 export interface TripSettlement {
   tripId: string;
@@ -22,6 +23,7 @@ export interface TripSettlement {
     isLate: boolean;
     latePenalty: number;
   }[];
+  tripCost: number;
   totalIncome: number;
   totalExpense: number;
   totalProfit: number;
@@ -77,23 +79,6 @@ export const calculateActualDamage = (
   return 0;
 };
 
-export const calculateIsLate = (
-  trip: Trip,
-  commission: Commission,
-  extraDelay: number
-): boolean => {
-  const totalTime = trip.eta - trip.departureTime + extraDelay;
-  return totalTime > commission.deadlineHours;
-};
-
-export const calculateLatePenalty = (
-  baseReward: number,
-  isLate: boolean
-): number => {
-  if (!isLate) return 0;
-  return Math.floor(baseReward * 0.3);
-};
-
 export const settleTrip = (
   trip: Trip,
   commissions: Commission[],
@@ -101,8 +86,9 @@ export const settleTrip = (
   weather: Weather,
   routeCondition: number,
   isOverloaded: boolean,
-  events: GameEvent[],
-  reputationBonus: number
+  eventEffects: { title: string; effect: any }[],
+  reputationBonus: number,
+  totalTripHours: number
 ): TripSettlement => {
   let totalIncome = 0;
   let totalExpense = trip.totalCost;
@@ -112,39 +98,66 @@ export const settleTrip = (
   const eventDescriptions: string[] = [];
   
   let extraDelay = 0;
-  let extraGold = 0;
-  events.forEach(event => {
-    event.effects.forEach(effect => {
-      if (effect.type === 'delay') {
-        extraDelay += effect.value as number;
+  let extraGoldFromEvents = 0;
+  eventEffects.forEach(item => {
+    const { title, effect } = item;
+    if (effect.type === 'delay') {
+      extraDelay += effect.value as number;
+    }
+    if (effect.type === 'reputation') {
+      reputationChange += effect.value as number;
+    }
+    if (effect.type === 'gold') {
+      extraGoldFromEvents += effect.value as number;
+      if ((effect.value as number) < 0) {
+        totalExpense += Math.abs(effect.value as number);
+      } else {
+        totalIncome += (effect.value as number);
       }
-      if (effect.type === 'gold') {
-        extraGold += effect.value as number;
-      }
-      if (effect.type === 'reputation') {
-        reputationChange += effect.value as number;
-      }
-      eventDescriptions.push(`${event.title}: ${effect.description}`);
-    });
+    }
+    eventDescriptions.push(`${title}: ${effect.description}`);
   });
-  
-  totalExpense -= extraGold;
   
   const settledCommissions = commissions.map(commission => {
     const goods = goodsList.find(g => g.id === commission.goodsId);
     const goodsName = goods?.name || '未知货物';
+    
+    const relevantEvents = eventEffects
+      .filter(e => e.effect.type === 'damage')
+      .map(e => {
+        const event = e as any;
+        return { ...event, effects: [{ type: 'damage', value: e.effect.value }] };
+      });
     
     const damaged = calculateActualDamage(
       commission,
       weather,
       routeCondition,
       isOverloaded,
-      events
+      relevantEvents
     );
     const delivered = commission.quantity - damaged;
     
-    const isLate = calculateIsLate(trip, commission, extraDelay);
-    const latePenalty = calculateLatePenalty(commission.reward, isLate);
+    const acceptedGameHours = commission.acceptedGameHours || trip.departureGameHours || 0;
+    const departedGameHours = trip.departureGameHours || 0;
+    
+    const isLate = calculateIsLateGameTime(
+      acceptedGameHours,
+      commission.deadlineHours,
+      departedGameHours,
+      totalTripHours,
+      extraDelay
+    );
+    
+    const latePenalty = isLate ? Math.floor(commission.reward * 0.3) : 0;
+    if (latePenalty > 0) {
+      totalExpense += latePenalty;
+    }
+    
+    if (damaged > 0) {
+      const damageCompensation = Math.floor(commission.reward * (damaged / commission.quantity) * 0.5);
+      totalExpense += damageCompensation;
+    }
     
     const bonusMultiplier = 1 + (reputationBonus / 100);
     const baseReward = Math.floor(commission.reward * (delivered / commission.quantity) * bonusMultiplier);
@@ -182,6 +195,7 @@ export const settleTrip = (
   return {
     tripId: trip.id,
     commissions: settledCommissions,
+    tripCost: trip.totalCost,
     totalIncome,
     totalExpense,
     totalProfit,
@@ -212,12 +226,12 @@ export const generateLedgerEntries = (
     });
   }
   
-  if (settlement.totalExpense > 0) {
+  if (settlement.tripCost > 0) {
     entries.push({
       id: '',
       type: 'expense',
       description: `运输成本 - 车辆费用`,
-      amount: settlement.totalExpense,
+      amount: settlement.tripCost,
       date,
       day,
       category: '成本',

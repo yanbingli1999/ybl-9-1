@@ -3,7 +3,7 @@ import { Anchor, Map, Truck, Warehouse, BookOpen, Clock } from 'lucide-react';
 import { useGameStore } from '../../store/useGameStore';
 
 const Sidebar = () => {
-  const { advanceTimeOfDay, player, trips } = useGameStore();
+  const { advanceTimeOfDay, player, trips, currentTripId, showEvent, showSettlement } = useGameStore();
   
   const inProgressTrips = trips.filter(t => t.status === 'in_progress');
   
@@ -60,13 +60,19 @@ const Sidebar = () => {
           {inProgressTrips.length > 0 && player.timeOfDay === 'night' ? (
             <button
               onClick={() => {
-                const trip = inProgressTrips[0];
+                const isBusy = currentTripId || showEvent || showSettlement;
+                if (isBusy) return;
+                const unprocessedTrip = inProgressTrips.find(t => t.id !== currentTripId);
+                const trip = unprocessedTrip || inProgressTrips[0];
                 useGameStore.getState().processTripEvents(trip.id);
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg"
+              disabled={!!currentTripId || showEvent || showSettlement}
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Clock className="w-5 h-5 animate-pulse" />
-              <span className="font-medium">处理运输 ({inProgressTrips.length})</span>
+              <Clock className={`w-5 h-5 ${currentTripId ? 'animate-pulse' : ''}`} />
+              <span className="font-medium">
+                {currentTripId ? '处理中...' : `处理运输 (${inProgressTrips.length})`}
+              </span>
             </button>
           ) : (
             <button

@@ -247,3 +247,29 @@ export const calculateWarehouseUsedSpace = (
     return total + (commission.quantity * (goods?.weight || 1));
   }, 0);
 };
+
+export const getTimeOfDayHours = (timeOfDay: 'morning' | 'afternoon' | 'evening' | 'night'): number => {
+  const hoursMap: Record<'morning' | 'afternoon' | 'evening' | 'night', number> = {
+    morning: 6,
+    afternoon: 12,
+    evening: 18,
+    night: 24,
+  };
+  return hoursMap[timeOfDay];
+};
+
+export const calculateTotalGameHours = (day: number, timeOfDay: 'morning' | 'afternoon' | 'evening' | 'night'): number => {
+  return (day - 1) * 24 + getTimeOfDayHours(timeOfDay);
+};
+
+export const calculateIsLateGameTime = (
+  acceptedGameHours: number,
+  deadlineHours: number,
+  departedGameHours: number,
+  totalTripHours: number,
+  extraDelay: number
+): boolean => {
+  const deadlineGameTime = acceptedGameHours + deadlineHours;
+  const arrivalGameTime = departedGameHours + totalTripHours + extraDelay;
+  return arrivalGameTime > deadlineGameTime;
+};
