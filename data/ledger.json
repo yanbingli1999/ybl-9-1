@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ledger-1781298484171-3a91o846y",
+    "type": "income",
+    "description": "运输收入 - 珠宝",
+    "amount": 15005,
+    "date": "2024年1月1日",
+    "day": 1,
+    "category": "运输",
+    "createdAt": 1781298484171
+  },
+  {
+    "id": "ledger-1781298484171-v0rn8fx4z",
+    "type": "expense",
+    "description": "运输成本 - 车辆费用",
+    "amount": 530,
+    "date": "2024年1月1日",
+    "day": 1,
+    "category": "成本",
+    "createdAt": 1781298484171
+  },
+  {
+    "id": "ledger-1781298484171-4hpx5mvdf",
+    "type": "expense",
+    "description": "迟到罚款 - 珠宝",
+    "amount": 6430,
+    "date": "2024年1月1日",
+    "day": 1,
+    "category": "罚款",
+    "createdAt": 1781298484171
+  }
+]

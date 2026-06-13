@@ -1,0 +1,179 @@
+{
+  "player": {
+    "id": "1781298180433-j2qvxwofm",
+    "name": "月港邮差",
+    "gold": 15095,
+    "reputation": 590,
+    "reputationGrade": "丙",
+    "priceBonus": 0,
+    "currentDay": 1,
+    "timeOfDay": "night"
+  },
+  "commissions": [
+    {
+      "id": "1781298180434-7nfcggbsh",
+      "goodsId": "rice",
+      "goodsName": "大米",
+      "destinationId": "chengdu",
+      "destinationName": "成都",
+      "quantity": 15,
+      "reward": 2686,
+      "deadlineHours": 17,
+      "fragility": 15,
+      "isAccepted": false,
+      "createdAt": 1781298180434
+    },
+    {
+      "id": "1781298180434-9na4zs29f",
+      "goodsId": "salt",
+      "goodsName": "食盐",
+      "destinationId": "guangzhou",
+      "destinationName": "广州",
+      "quantity": 12,
+      "reward": 1619,
+      "deadlineHours": 47,
+      "fragility": 10,
+      "isAccepted": false,
+      "createdAt": 1781298180434
+    },
+    {
+      "id": "1781298180434-aw39i5vzm",
+      "goodsId": "fur",
+      "goodsName": "皮毛",
+      "destinationId": "wuhan",
+      "destinationName": "武汉",
+      "quantity": 13,
+      "reward": 14693,
+      "deadlineHours": 24,
+      "fragility": 35,
+      "isAccepted": true,
+      "createdAt": 1781298180434
+    },
+    {
+      "id": "1781298180434-h39646ttm",
+      "goodsId": "jewelry",
+      "goodsName": "珠宝",
+      "destinationId": "xian",
+      "destinationName": "西安",
+      "quantity": 8,
+      "reward": 21435,
+      "deadlineHours": 14,
+      "fragility": 30,
+      "isAccepted": true,
+      "createdAt": 1781298180434,
+      "isCompleted": true
+    },
+    {
+      "id": "1781298180434-3uk7eqr8s",
+      "goodsId": "jewelry",
+      "goodsName": "珠宝",
+      "destinationId": "guangzhou",
+      "destinationName": "广州",
+      "quantity": 8,
+      "reward": 19437,
+      "deadlineHours": 33,
+      "fragility": 30,
+      "isAccepted": false,
+      "createdAt": 1781298180434
+    },
+    {
+      "id": "1781298180434-z2f3qrz4c",
+      "goodsId": "jewelry",
+      "goodsName": "珠宝",
+      "destinationId": "guangzhou",
+      "destinationName": "广州",
+      "quantity": 17,
+      "reward": 60188,
+      "deadlineHours": 30,
+      "fragility": 30,
+      "isAccepted": false,
+      "createdAt": 1781298180434
+    }
+  ],
+  "trips": [
+    {
+      "id": "1781298457077-qunsx61tx",
+      "vehicleId": "1781298180433-ar3g3ri34",
+      "routeId": "yuegang-guangzhou-water",
+      "commissionIds": [
+        "1781298180434-h39646ttm"
+      ],
+      "status": "completed",
+      "progress": 0,
+      "departureTime": 1781298457077,
+      "eta": 1781341657077,
+      "currentDamage": 0,
+      "weatherId": "sunny",
+      "events": [
+        "官府稽查: 缴纳税金80金币"
+      ],
+      "totalCost": 300,
+      "actualArrivalTime": 1781298484165
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "1781298180433-vxss7oiz1",
+      "vehicleId": "donkey-cart",
+      "name": "驴车",
+      "type": "land",
+      "capacity": 50,
+      "speed": 12,
+      "costPerHour": 5,
+      "icon": "🐴",
+      "isAvailable": true
+    },
+    {
+      "id": "1781298180433-ar3g3ri34",
+      "vehicleId": "small-boat",
+      "name": "小渡船",
+      "type": "water",
+      "capacity": 80,
+      "speed": 20,
+      "costPerHour": 15,
+      "icon": "⛵",
+      "isAvailable": true
+    }
+  ],
+  "warehouse": {
+    "id": "1781298180433-sxftdms9w",
+    "level": 1,
+    "capacity": 100,
+    "usedSpace": 78,
+    "upgradeCost": 500
+  },
+  "ledger": [
+    {
+      "id": "",
+      "type": "income",
+      "description": "运输收入 - 珠宝",
+      "amount": 15005,
+      "date": "2024年1月1日",
+      "day": 1,
+      "category": "运输",
+      "createdAt": 0
+    },
+    {
+      "id": "",
+      "type": "expense",
+      "description": "运输成本 - 车辆费用",
+      "amount": 530,
+      "date": "2024年1月1日",
+      "day": 1,
+      "category": "成本",
+      "createdAt": 0
+    },
+    {
+      "id": "",
+      "type": "expense",
+      "description": "迟到罚款 - 珠宝",
+      "amount": 6430,
+      "date": "2024年1月1日",
+      "day": 1,
+      "category": "罚款",
+      "createdAt": 0
+    }
+  ],
+  "currentWeatherId": "sunny",
+  "savedAt": 1781298484173
+}

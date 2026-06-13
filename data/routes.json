@@ -1,0 +1,145 @@
+[
+  {
+    "id": "yuegang-quanzhou-land",
+    "fromCityId": "yuegang",
+    "toCityId": "quanzhou",
+    "type": "land",
+    "distance": 180,
+    "baseTimeHours": 12,
+    "baseCost": 50,
+    "stops": 2,
+    "condition": 0.85
+  },
+  {
+    "id": "yuegang-quanzhou-water",
+    "fromCityId": "yuegang",
+    "toCityId": "quanzhou",
+    "type": "water",
+    "distance": 120,
+    "baseTimeHours": 8,
+    "baseCost": 80,
+    "stops": 0,
+    "condition": 0.9
+  },
+  {
+    "id": "yuegang-guangzhou-water",
+    "fromCityId": "yuegang",
+    "toCityId": "guangzhou",
+    "type": "water",
+    "distance": 200,
+    "baseTimeHours": 14,
+    "baseCost": 120,
+    "stops": 1,
+    "condition": 0.8
+  },
+  {
+    "id": "quanzhou-hangzhou-land",
+    "fromCityId": "quanzhou",
+    "toCityId": "hangzhou",
+    "type": "land",
+    "distance": 250,
+    "baseTimeHours": 18,
+    "baseCost": 100,
+    "stops": 3,
+    "condition": 0.8
+  },
+  {
+    "id": "quanzhou-wuhan-land",
+    "fromCityId": "quanzhou",
+    "toCityId": "wuhan",
+    "type": "land",
+    "distance": 300,
+    "baseTimeHours": 22,
+    "baseCost": 120,
+    "stops": 4,
+    "condition": 0.75
+  },
+  {
+    "id": "hangzhou-nanjing-land",
+    "fromCityId": "hangzhou",
+    "toCityId": "nanjing",
+    "type": "land",
+    "distance": 150,
+    "baseTimeHours": 10,
+    "baseCost": 60,
+    "stops": 2,
+    "condition": 0.9
+  },
+  {
+    "id": "hangzhou-wuhan-water",
+    "fromCityId": "hangzhou",
+    "toCityId": "wuhan",
+    "type": "water",
+    "distance": 280,
+    "baseTimeHours": 20,
+    "baseCost": 150,
+    "stops": 2,
+    "condition": 0.85
+  },
+  {
+    "id": "nanjing-beijing-land",
+    "fromCityId": "nanjing",
+    "toCityId": "beijing",
+    "type": "land",
+    "distance": 400,
+    "baseTimeHours": 30,
+    "baseCost": 200,
+    "stops": 5,
+    "condition": 0.85
+  },
+  {
+    "id": "wuhan-chengdu-land",
+    "fromCityId": "wuhan",
+    "toCityId": "chengdu",
+    "type": "land",
+    "distance": 350,
+    "baseTimeHours": 26,
+    "baseCost": 180,
+    "stops": 4,
+    "condition": 0.7
+  },
+  {
+    "id": "wuhan-xian-land",
+    "fromCityId": "wuhan",
+    "toCityId": "xian",
+    "type": "land",
+    "distance": 320,
+    "baseTimeHours": 24,
+    "baseCost": 160,
+    "stops": 4,
+    "condition": 0.75
+  },
+  {
+    "id": "xian-beijing-land",
+    "fromCityId": "xian",
+    "toCityId": "beijing",
+    "type": "land",
+    "distance": 380,
+    "baseTimeHours": 28,
+    "baseCost": 190,
+    "stops": 5,
+    "condition": 0.8
+  },
+  {
+    "id": "guangzhou-nanyang-water",
+    "fromCityId": "guangzhou",
+    "toCityId": "nanyang",
+    "type": "water",
+    "distance": 500,
+    "baseTimeHours": 48,
+    "baseCost": 300,
+    "stops": 2,
+    "condition": 0.6
+  },
+  {
+    "id": "yuegang-nanyang-water",
+    "fromCityId": "yuegang",
+    "toCityId": "nanyang",
+    "type": "water",
+    "distance": 450,
+    "baseTimeHours": 42,
+    "baseCost": 280,
+    "stops": 1,
+    "condition": 0.65
+  }
+]

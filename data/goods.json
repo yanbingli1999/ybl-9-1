@@ -1,0 +1,122 @@
+[
+  {
+    "id": "silk",
+    "name": "丝绸",
+    "category": "织物",
+    "weight": 2,
+    "fragility": 60,
+    "basePrice": 500,
+    "icon": "🧵",
+    "description": "精美的江南丝绸，轻盈但易受潮"
+  },
+  {
+    "id": "porcelain",
+    "name": "瓷器",
+    "category": "陶瓷",
+    "weight": 10,
+    "fragility": 90,
+    "basePrice": 800,
+    "icon": "🏺",
+    "description": "景德镇瓷器，精美但极易破碎"
+  },
+  {
+    "id": "tea",
+    "name": "茶叶",
+    "category": "食品",
+    "weight": 5,
+    "fragility": 40,
+    "basePrice": 300,
+    "icon": "🍵",
+    "description": "上等好茶，需防潮防霉"
+  },
+  {
+    "id": "spice",
+    "name": "香料",
+    "category": "奢侈品",
+    "weight": 1,
+    "fragility": 20,
+    "basePrice": 1000,
+    "icon": "🌶️",
+    "description": "南洋进口的珍贵香料"
+  },
+  {
+    "id": "medicine",
+    "name": "药材",
+    "category": "药品",
+    "weight": 3,
+    "fragility": 50,
+    "basePrice": 600,
+    "icon": "🌿",
+    "description": "珍贵中药材，需小心保存"
+  },
+  {
+    "id": "salt",
+    "name": "食盐",
+    "category": "食品",
+    "weight": 15,
+    "fragility": 10,
+    "basePrice": 100,
+    "icon": "🧂",
+    "description": "日常必需品，不易损坏"
+  },
+  {
+    "id": "rice",
+    "name": "大米",
+    "category": "食品",
+    "weight": 20,
+    "fragility": 15,
+    "basePrice": 80,
+    "icon": "🍚",
+    "description": "粮食，量大但不易损坏"
+  },
+  {
+    "id": "wine",
+    "name": "美酒",
+    "category": "饮品",
+    "weight": 8,
+    "fragility": 70,
+    "basePrice": 400,
+    "icon": "🍶",
+    "description": "陈年佳酿，酒坛易碎"
+  },
+  {
+    "id": "jewelry",
+    "name": "珠宝",
+    "category": "奢侈品",
+    "weight": 1,
+    "fragility": 30,
+    "basePrice": 2000,
+    "icon": "💎",
+    "description": "珍贵珠宝，价值连城"
+  },
+  {
+    "id": "paper",
+    "name": "宣纸",
+    "category": "文具",
+    "weight": 4,
+    "fragility": 55,
+    "basePrice": 250,
+    "icon": "📜",
+    "description": "上等宣纸，怕水怕潮"
+  },
+  {
+    "id": "ink",
+    "name": "墨锭",
+    "category": "文具",
+    "weight": 2,
+    "fragility": 45,
+    "basePrice": 180,
+    "icon": "🖋️",
+    "description": "徽墨，文房四宝之一"
+  },
+  {
+    "id": "fur",
+    "name": "皮毛",
+    "category": "织物",
+    "weight": 6,
+    "fragility": 35,
+    "basePrice": 700,
+    "icon": "🦊",
+    "description": "珍贵皮毛，需防虫蛀"
+  }
+]

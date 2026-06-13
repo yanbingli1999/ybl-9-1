@@ -1,0 +1,82 @@
+[
+  {
+    "id": "yuegang",
+    "name": "月港",
+    "type": "port",
+    "x": 50,
+    "y": 70,
+    "description": "海上丝绸之路的起点，繁华的港口城市"
+  },
+  {
+    "id": "quanzhou",
+    "name": "泉州",
+    "type": "city",
+    "x": 35,
+    "y": 55,
+    "description": "历史悠久的商贸城市，瓷器与茶叶的集散地"
+  },
+  {
+    "id": "guangzhou",
+    "name": "广州",
+    "type": "port",
+    "x": 30,
+    "y": 85,
+    "description": "南方重要港口，南洋贸易的枢纽"
+  },
+  {
+    "id": "hangzhou",
+    "name": "杭州",
+    "type": "city",
+    "x": 65,
+    "y": 45,
+    "description": "江南富庶之地，丝绸与茶叶的产地"
+  },
+  {
+    "id": "nanjing",
+    "name": "南京",
+    "type": "city",
+    "x": 55,
+    "y": 35,
+    "description": "古都金陵，政治与文化中心"
+  },
+  {
+    "id": "beijing",
+    "name": "北京",
+    "type": "capital",
+    "x": 60,
+    "y": 15,
+    "description": "帝都京城，皇家贡品的目的地"
+  },
+  {
+    "id": "chengdu",
+    "name": "成都",
+    "type": "city",
+    "x": 20,
+    "y": 40,
+    "description": "天府之国，蜀锦与药材的产地"
+  },
+  {
+    "id": "wuhan",
+    "name": "武汉",
+    "type": "city",
+    "x": 45,
+    "y": 45,
+    "description": "九省通衢，水陆交通要冲"
+  },
+  {
+    "id": "xian",
+    "name": "西安",
+    "type": "city",
+    "x": 25,
+    "y": 25,
+    "description": "古丝绸之路起点，西北商贸重镇"
+  },
+  {
+    "id": "nanyang",
+    "name": "南洋",
+    "type": "overseas",
+    "x": 80,
+    "y": 90,
+    "description": "海外贸易港口，香料与珠宝的来源地"
+  }
+]

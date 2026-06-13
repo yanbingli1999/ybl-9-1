@@ -1,0 +1,151 @@
+[
+  {
+    "id": "bandit",
+    "type": "danger",
+    "title": "遭遇山贼",
+    "description": "一群山贼拦住了去路，他们想要收买路钱！",
+    "choices": ["交出买路钱", "强行闯过去", "谈判周旋"],
+    "effects": [
+      { "type": "gold", "value": -100, "description": "损失100金币" },
+      { "type": "damage", "value": 30, "description": "货物损失30%" },
+      { "type": "reputation", "value": -10, "description": "声望降低" }
+    ],
+    "probability": 0.15
+  },
+  {
+    "id": "broken-wheel",
+    "type": "accident",
+    "title": "车轮损坏",
+    "description": "马车的车轮突然损坏，需要修理。",
+    "choices": ["原地修理", "找附近的驿站帮忙"],
+    "effects": [
+      { "type": "delay", "value": 4, "description": "延误4小时" },
+      { "type": "gold", "value": -50, "description": "修理费50金币" }
+    ],
+    "probability": 0.12
+  },
+  {
+    "id": "sick-horse",
+    "type": "accident",
+    "title": "马匹生病",
+    "description": "拉车的马匹突然病倒了。",
+    "choices": ["让马休息恢复", "雇请新的马匹"],
+    "effects": [
+      { "type": "delay", "value": 6, "description": "延误6小时" },
+      { "type": "gold", "value": -80, "description": "新马费用80金币" }
+    ],
+    "probability": 0.1
+  },
+  {
+    "id": "kind-merchant",
+    "type": "luck",
+    "title": "热心商人",
+    "description": "路上遇到一位热心的商人，他愿意分享一些信息。",
+    "choices": ["倾听他的建议", "赠送礼物表示感谢"],
+    "effects": [
+      { "type": "reputation", "value": 10, "description": "声望提升" },
+      { "type": "hint", "value": "good", "description": "获得下次运输的好建议" }
+    ],
+    "probability": 0.1
+  },
+  {
+    "id": "hidden-treasure",
+    "type": "luck",
+    "title": "意外之财",
+    "description": "在路边发现了一个被遗弃的箱子！",
+    "choices": ["打开看看", "交给官府"],
+    "effects": [
+      { "type": "gold", "value": 200, "description": "获得200金币" },
+      { "type": "reputation", "value": 15, "description": "拾金不昧，声望大增" }
+    ],
+    "probability": 0.05
+  },
+  {
+    "id": "river-flood",
+    "type": "weather",
+    "title": "河水暴涨",
+    "description": "连日大雨导致河水暴涨，渡口暂时关闭。",
+    "choices": ["等待水退", "寻找其他路线"],
+    "effects": [
+      { "type": "delay", "value": 8, "description": "延误8小时" },
+      { "type": "gold", "value": -120, "description": "绕路费用120金币" }
+    ],
+    "probability": 0.08
+  },
+  {
+    "id": "pirate",
+    "type": "danger",
+    "title": "海盗袭击",
+    "description": "海上航行时遭遇了海盗！",
+    "choices": ["交出财物保命", "奋起抵抗", "快速逃跑"],
+    "effects": [
+      { "type": "gold", "value": -300, "description": "损失300金币" },
+      { "type": "damage", "value": 50, "description": "货物损失50%" },
+      { "type": "delay", "value": 6, "description": "逃脱耗时6小时" }
+    ],
+    "probability": 0.1
+  },
+  {
+    "id": "storm-damage",
+    "type": "weather",
+    "title": "风暴侵袭",
+    "description": "突如其来的风暴袭击了船队。",
+    "choices": ["加固货物", "寻找避风港"],
+    "effects": [
+      { "type": "damage", "value": 40, "description": "货物损失40%" },
+      { "type": "delay", "value": 12, "description": "延误12小时" }
+    ],
+    "probability": 0.12
+  },
+  {
+    "id": "local-festival",
+    "type": "luck",
+    "title": "当地节庆",
+    "description": "途经的城镇正在举办盛大的节庆活动，商品价格临时上涨！",
+    "choices": ["参与庆典", "继续赶路"],
+    "effects": [
+      { "type": "gold", "value": 150, "description": "加价出售获得150金币" },
+      { "type": "delay", "value": 4, "description": "延误4小时" }
+    ],
+    "probability": 0.08
+  },
+  {
+    "id": "bridge-collapse",
+    "type": "accident",
+    "title": "桥梁坍塌",
+    "description": "前方的木桥年久失修，突然坍塌了。",
+    "choices": ["涉水过河", "绕道而行", "临时修桥"],
+    "effects": [
+      { "type": "damage", "value": 20, "description": "货物浸水损失20%" },
+      { "type": "delay", "value": 10, "description": "延误10小时" },
+      { "type": "gold", "value": -100, "description": "修桥费用100金币" }
+    ],
+    "probability": 0.08
+  },
+  {
+    "id": "government-inspection",
+    "type": "danger",
+    "title": "官府稽查",
+    "description": "遇到了官府的税吏，他们要检查货物并收税。",
+    "choices": ["照章纳税", "贿赂税吏", "据理力争"],
+    "effects": [
+      { "type": "gold", "value": -80, "description": "缴纳税金80金币" },
+      { "type": "gold", "value": -150, "description": "贿赂费用150金币" },
+      { "type": "reputation", "value": 20, "description": "依法纳税，声望提升" }
+    ],
+    "probability": 0.12
+  },
+  {
+    "id": "lost-way",
+    "type": "accident",
+    "title": "迷失方向",
+    "description": "大雾弥漫，车队迷失了方向。",
+    "choices": ["原地等待雾散", "凭经验摸索前进", "寻找向导"],
+    "effects": [
+      { "type": "delay", "value": 8, "description": "延误8小时" },
+      { "type": "delay", "value": 12, "description": "走错路，延误12小时" },
+      { "type": "gold", "value": -60, "description": "向导费用60金币" }
+    ],
+    "probability": 0.1
+  }
+]
